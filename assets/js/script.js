@@ -6,7 +6,7 @@ var question = document.querySelector(".question");
 
 
 var correctCounter = 0
-var WrongCounter = 0
+var wrongCounter = 0
 var timer;
 var timerCount;
 var isCorrect = false;
@@ -18,15 +18,27 @@ function startQuiz(){
     console.log(isCorrect);
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
-//   renderBlanks()
-  startTimer()
+//   renderBlanks();
+    startTimer();
     
-    
-    
-    console.log(startButton);
-    
+    console.log(startButton);    
 }
 
+// The winGame function is called when the win condition is met
+function winGame() {
+    question.textContent = "YOU WON!!!🏆 ";
+    correctCounter++
+    startButton.disabled = false;
+    setWins()
+  }
+  
+  // The loseGame function is called when timer reaches 0
+  function loseGame() {
+    question.textContent = "GAME OVER";
+    wrongCounter++
+    startButton.disabled = false;
+    setLosses()
+  }
 
 // The setTimer function starts and stops the timer and triggers ******winGame() and loseGame()*******
 function startTimer(){
