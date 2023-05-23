@@ -51,7 +51,7 @@ function startQuiz(){
     isCorrect = false;
     timerCount = 75; 
     console.log(isCorrect);
-  // Prevents start button from being clicked when round is in progress
+  // Prevents start button from being clicked when guiz is in progress
     startButton.disabled = true;
     startTimer();
     console.log(startButton);    
@@ -71,7 +71,7 @@ function printQuestion(){
     
 }
 
-// The winGame function is called when the win condition is met
+// The correctAnswer function is called with the correct answer
 function correctAnswer() {
     question.textContent = "correctAnswer";
     correctCounter++
@@ -86,14 +86,13 @@ function correctAnswer() {
     timerCount-=10
   }
 
-// The setTimer function starts and stops the timer and triggers 
+// The startTimer function starts and stops the timer 
 function startTimer(){
 
     timer = setInterval(function() {
         timerCount--;
         timerDisplay.textContent = timerCount;
         if (timerCount <= 0) {
-          // Tests if correct condition is met
           clearInterval(timer);
           question.textContent="Game Over"
         }
@@ -111,7 +110,7 @@ else{
 }
 
 }
-// Attach event listener to start button to call startQuiz function on click
+// Attach event listeners
 startButton.addEventListener("click", startQuiz);
 questionsButton.forEach(function (button){
 button.addEventListener("click", questionAnswer)
