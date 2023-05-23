@@ -49,6 +49,7 @@ const myQuestions = [
 
 // The startQuiz function is called when the start button is clicked
 function startQuiz(){
+    questionIndex = 0  //reset questions to the begining
     isCorrect = false;
     timerCount = 75; 
     console.log(isCorrect);
@@ -57,7 +58,8 @@ function startQuiz(){
     startTimer();
     console.log(startButton);    
     printQuestion()
-    
+   
+
 }
 
 function printQuestion(){
@@ -118,14 +120,19 @@ if (questionIndex >= myQuestions.length-1){
 }
 else{
     questionIndex ++
+    printQuestion()
 }
 
-    printQuestion()
 
 }
 
 
 function EndGame(){
+    question.textContent="Game Over"
+    questionsButton.innerHTML = ""
+    clearInterval(timer)
+    startButton.disabled=false
+    startButton.addEventListener("click", startQuiz)
 
 
 }
