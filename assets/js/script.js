@@ -11,6 +11,7 @@ var wrongCounter = 0
 var timer;
 var timerCount;
 var isCorrect = false;
+var questionIndex = 0
 
 const myQuestions = [
 {
@@ -60,7 +61,10 @@ function startQuiz(){
 }
 
 function printQuestion(){
-    const currentQuestion = myQuestions[0]
+    const currentQuestion = myQuestions[questionIndex]
+    //display question on the screen
+    question.textContent=currentQuestion.question
+    console.log(questionIndex, currentQuestion);
     for (let index = 0; index < questionsButton.length; index++) {
         const button = questionsButton[index];
         const question = currentQuestion.answers[index];
@@ -107,9 +111,25 @@ if (event.currentTarget.value == "true"){
 }
 else{
     incorrectAnswer()
+    
+}
+if (questionIndex >= myQuestions.length-1){   
+    questionIndex=EndGame()
+}
+else{
+    questionIndex ++
 }
 
+    printQuestion()
+
 }
+
+
+function EndGame(){
+
+
+}
+
 // Attach event listeners
 startButton.addEventListener("click", startQuiz);
 questionsButton.forEach(function (button){
