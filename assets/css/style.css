@@ -9,7 +9,7 @@ body {
     background: linear-gradient(0deg, rgb(93, 99, 105) 0%, rgb(4, 50, 73) 63%);
 }
 
- button {
+ section button {
     background: white;
     border-radius: 8px;
     color: #13293d;
@@ -20,7 +20,7 @@ body {
     max-width: 255px;
     padding: 30px 52px;
     text-align: center;
-    margin-top: 0.6em;
+    /* margin-top: 0.6em; */
     
   }
 
@@ -31,16 +31,14 @@ body {
     color: #13293d;
     cursor: pointer;
     font-size: 20px;
-    letter-spacing: 0.21px;
-    line-height: 16px;
-    max-width: 255px;
-    padding: 30px 52px;
+    /* letter-spacing: 0.21px; */
+    line-height: 20px;
+    /* max-width: 255px; */
+    padding: 30px 65px;
     text-align: center;
-    transition-duration: 0.15s;
-    transition-property: background-color;
-    transition-timing-function: linear;
     margin-top: 30px;
-  } 
+    } 
+
 
     /* question area */
   section .large-font {
@@ -48,6 +46,7 @@ body {
     font-size: 40px;
     color: white;
     text-align: center;
+    
 
   }
 

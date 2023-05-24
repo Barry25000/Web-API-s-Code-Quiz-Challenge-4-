@@ -4,14 +4,14 @@ var correct = document.querySelector(".correct");
 var wrong = document.querySelector(".wrong");
 var question = document.querySelector(".question");
 
-var questionsButton = document.querySelectorAll(".possible-questions button")
+var questionsButton = document.querySelectorAll(".possible-questions button");
 
-var correctCounter = 0
-var wrongCounter = 0
+var correctCounter = 0;
+var wrongCounter = 0;
 var timer;
 var timerCount;
 var isCorrect = false;
-var questionIndex = 0
+var questionIndex = 0;
 
 const myQuestions = [
 {
@@ -55,8 +55,10 @@ function startQuiz(){
     console.log(isCorrect);
   // Prevents start button from being clicked when guiz is in progress
     startButton.disabled = true;
+    
+
     startTimer();
-    console.log(startButton);    
+    console.log(startButton, questionsButton);    
     printQuestion()
    
 
@@ -87,9 +89,9 @@ function correctAnswer() {
   
  function incorrectAnswer() {
     question.textContent = "incorrectAnswer";
-    wrongCounter++
-    wrong.textContent=wrongCounter
-    timerCount-=10
+    wrongCounter++;
+    wrong.textContent=wrongCounter;
+    timerCount-=10;
   }
 
 // The startTimer function starts and stops the timer 
@@ -100,7 +102,7 @@ function startTimer(){
         timerDisplay.textContent = timerCount;
         if (timerCount <= 0) {
           clearInterval(timer);
-          question.textContent="Game Over"
+          question.textContent="Game Over";
         }
       }, 1000);
 
@@ -119,28 +121,34 @@ if (questionIndex >= myQuestions.length-1){
     questionIndex=EndGame()
 }
 else{
-    questionIndex ++
+    questionIndex ++;
     printQuestion()
 }
-
-
 }
 
 
 function EndGame(){
-    question.textContent="Game Over"
-    questionsButton.innerHTML = ""
-    clearInterval(timer)
-    startButton.disabled=false
-    startButton.addEventListener("click", startQuiz)
+    question.textContent="Game Over";
+    questionsButton.innerHTML = "";
+    clearInterval(timer);
+    startButton.disabled=false;
+    startButton.addEventListener("click", startQuiz);
+       
+    localStorage.setItem("correctCount", correctCounter);
+    
+    
+    // for (let index = 0; index < questionsButton.length; index++) {
+    //     const button = questionsButton[index];
 
-
+    //     questionsButton.forEach(function (button){
+    //     button.addEventListener("click", questionAnswer);
+    
 }
 
 // Attach event listeners
 startButton.addEventListener("click", startQuiz);
 questionsButton.forEach(function (button){
-button.addEventListener("click", questionAnswer)
+button.addEventListener("click", questionAnswer);
 
 })
 
